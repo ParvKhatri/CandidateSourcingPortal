@@ -58,7 +58,6 @@ namespace MyApp.Application.Services.UserServices
             }
             catch
             {
-                await _candidate.AddAsync(new Candidate()); //Simulate remove this line 
 
                 return OperationHandler<CreateUpdateCandidateDto>.Error(null);
             }
