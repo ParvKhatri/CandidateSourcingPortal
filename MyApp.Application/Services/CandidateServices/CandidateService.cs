@@ -49,10 +49,9 @@ namespace MyApp.Application.Services.UserServices
                 userDetails.UpdatedDate = DateTime.Now;
                 await _userDetails.AddAsync(userDetails);
 
-                var result = OperationHandler<CreateUpdateCandidateDto>.Success(null, "Candidate created successfully!");
+ 
 
-
-                return OperationHandler<CreateUpdateCandidateDto>.Success(null);
+                return OperationHandler<CreateUpdateCandidateDto>.Success(null,"Candidate created successfully!");
 
 
             }

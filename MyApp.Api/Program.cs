@@ -18,6 +18,7 @@ builder.Services.AddScoped<IGenericRepository<Interview>, GenericRepository<Inte
 builder.Services.AddScoped<IGenericRepository<Interview>, GenericRepository<Interview>>();
 builder.Services.AddScoped<IGenericRepository<Role>, GenericRepository<Role>>();
 builder.Services.AddScoped<ICandidateService, CandidateService>();
+builder.Services.AddScoped<IRoleService, RoleServices>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

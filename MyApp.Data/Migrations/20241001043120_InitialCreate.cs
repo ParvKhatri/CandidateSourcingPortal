@@ -16,7 +16,7 @@ namespace MyApp.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PassportNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PassportNumber = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DOB = table.Column<DateTime>(type: "datetime2", nullable: false),
                     LastInterviewDate = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -36,7 +36,7 @@ namespace MyApp.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -104,6 +104,12 @@ namespace MyApp.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Candidates_PassportNumber",
+                table: "Candidates",
+                column: "PassportNumber",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Interviews_CandidateId",

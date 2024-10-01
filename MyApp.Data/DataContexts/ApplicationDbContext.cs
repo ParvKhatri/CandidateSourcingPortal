@@ -2,11 +2,11 @@
 
 namespace MyApp.Data
 {
-    public class ApplicationDbContext:DbContext
+    public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options):base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            
+
         }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Interview> Interviews { get; set; }
@@ -21,6 +21,9 @@ namespace MyApp.Data
            .HasMany(c => c.Interviews)
            .WithOne(i => i.Candidate)
            .HasForeignKey(i => i.CandidateId);
+
+            modelBuilder.Entity<Candidate>()
+                .HasIndex(x => x.PassportNumber).IsUnique();
 
         }
 
